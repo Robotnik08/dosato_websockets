@@ -1,11 +1,27 @@
-// import your library
 import "my_lib"
 
-make result = sumTest(1, 2)
-do sayln(result) // 3
+do startServer(
+    "127.0.0.1", 8080, 1000,
+    void (client, client_endpoint) => {
+        do sayln("Client connected: " + client_endpoint)
+    },
+    void (client, client_endpoint) => {
+        do sayln("Client disconnected: " + client_endpoint)
+    },
+    void (client, client_endpoint, data, data_size, data_type) => {
+        do sayln("Received data from client: " + fromByteArray(data))
+        do sendMessage(client, toByteArray("Hello from server!"), data_type)
+    }
+)
 
-set result = sumTest(3, 4)
-do sayln(result) // 7
+define toByteArray(string str) {
+    make arr = []
+    do push(arr, (ubyte)i) for i in str
+    return arr
+}
 
-set result = sumTest(5.4, 6.5)
-do sayln(result) // 11.9
+define fromByteArray(array arr) {
+    make str = ""
+    set str += (char)i for i in arr
+    return str
+}

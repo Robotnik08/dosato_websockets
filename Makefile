@@ -3,13 +3,12 @@ CC = gcc
 
 # Compiler flags
 CFLAGS = -Wall -Werror -Wno-format
-
 # Include directories
-INCLUDES = -I./dosato_source -I./src/include
+INCLUDES = -I./dosato_source -I./src/include -I./wsServer/include
 
 # Linker flags
-LDFLAGS_WINDOWS = -L./dosato_source -llibdosato -L./src/lib -lmingw32
-LDFLAGS_LINUX = -L./dosato_source -ldosato -L./src/lib -lm -Wno-format -fPIC
+LDFLAGS_WINDOWS = -L./dosato_source -llibdosato -L./src/lib -lmingw32 -L./wsServer/lib -lws
+LDFLAGS_LINUX = -L./dosato_source -ldosato -L./src/lib -lm -L./wsServer/lib -lws -Wno-format -fPIC
 
 # Source files
 SRCS = main.c

@@ -11,6 +11,7 @@ void init(void* vm);
 DosatoFunctionMapList functions;
 
 // function forward declaration
-Value sumTest (ValueArray args, bool debug);
+Value startServer (ValueArray args, bool debug);
+Value sendMessage(ValueArray args, bool debug);
 
 #endif // MAIN_H
