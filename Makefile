@@ -17,7 +17,7 @@ SRCS = main.c
 OBJS = $(SRCS:.c=.o)
 
 # Target
-TARGET = my_lib
+TARGET = websockets
 
 # Detect OS
 ifeq ($(OS),Windows_NT)

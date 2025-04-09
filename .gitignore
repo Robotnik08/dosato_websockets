@@ -1,5 +1,5 @@
 .vscode
 *.o
-my_lib.*
+websockets.*
 libdosato.*
 dosato.h
